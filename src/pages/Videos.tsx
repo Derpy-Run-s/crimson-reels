@@ -144,7 +144,7 @@ const Videos = () => {
       <section className="relative overflow-hidden">
         <div className="relative h-[50vh] md:h-[70vh]">
           <img
-            src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1600&q=80"
+            src="https://thersproductions.com/assets/rs-assets/worksnew/10.jpg"
             alt="Red Sea Productions Films"
             className="w-full h-full object-cover"
           />

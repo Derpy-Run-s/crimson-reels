@@ -105,7 +105,7 @@ const Photography = () => {
         {/* Full-width hero image */}
         <div className="relative h-[50vh] md:h-[70vh]">
           <img
-            src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80"
+            src="https://thersproductions.com/assets/rs-assets/worksnew/1.jpg"
             alt="Red Sea Productions Portfolio"
             className="w-full h-full object-cover"
           />
