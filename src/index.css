@@ -101,6 +101,12 @@
   }
 }
 
+/* Scanline */
+@keyframes scanline {
+  0% { top: -2%; }
+  100% { top: 102%; }
+}
+
 /* Film Grain Overlay */
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }

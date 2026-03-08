@@ -21,16 +21,16 @@ const Photography = () => {
   const filtered = active === "ALL" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <main className="pt-24 pb-20">
+    <main className="pt-20 md:pt-24 pb-16 md:pb-20">
       {/* Header */}
-      <section className="px-6 md:px-12 py-16 md:py-24 relative overflow-hidden">
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[clamp(4rem,20vw,16rem)] uppercase tracking-cinematic text-primary/[0.04] select-none whitespace-nowrap pointer-events-none">
+      <section className="px-5 md:px-12 py-12 md:py-24 relative overflow-hidden">
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[clamp(3rem,18vw,16rem)] uppercase tracking-cinematic text-primary/[0.04] select-none whitespace-nowrap pointer-events-none">
           PHOTOGRAPHY
         </span>
         <div className="relative z-10 max-w-7xl mx-auto">
           <ScrollReveal>
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-4">SHOWCASE</p>
-            <h1 className="font-display text-5xl md:text-8xl uppercase tracking-cinematic text-foreground">
+            <p className="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-3">SHOWCASE</p>
+            <h1 className="font-display text-4xl md:text-8xl uppercase tracking-cinematic text-foreground">
               PHOTO<span className="text-primary">GRAPHY</span>
             </h1>
           </ScrollReveal>
@@ -38,16 +38,16 @@ const Photography = () => {
       </section>
 
       {/* Filter Bar */}
-      <section className="px-6 md:px-12 mb-12 md:mb-16">
-        <div className="max-w-7xl mx-auto flex flex-wrap gap-3 md:gap-6">
+      <section className="px-5 md:px-12 mb-8 md:mb-16">
+        <div className="max-w-7xl mx-auto flex flex-wrap gap-2 md:gap-4">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`font-mono text-[10px] tracking-widest uppercase py-2 px-4 border transition-all duration-300 ${
+              className={`font-mono text-[9px] md:text-[10px] tracking-widest uppercase py-2 px-3 md:px-4 border transition-all duration-300 ${
                 active === cat
                   ? "border-primary text-primary bg-primary/5"
-                  : "border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
+                  : "border-border/50 text-muted-foreground hover:border-primary/30 hover:text-foreground active:text-primary"
               }`}
             >
               {cat}
@@ -56,11 +56,11 @@ const Photography = () => {
         </div>
       </section>
 
-      {/* Masonry Grid */}
-      <section className="px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {/* Grid */}
+      <section className="px-5 md:px-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {filtered.map((project, i) => (
-            <ScrollReveal key={project.title} delay={i * 80}>
+            <ScrollReveal key={project.title} delay={i * 60}>
               <ProjectCard
                 {...project}
                 link="#"

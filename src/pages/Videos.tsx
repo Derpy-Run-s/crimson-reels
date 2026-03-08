@@ -5,8 +5,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 const videoProjects = [
@@ -23,7 +21,6 @@ const Videos = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Horizontal scroll on desktop
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current || !scrollRef.current) return;
@@ -40,16 +37,16 @@ const Videos = () => {
   }, []);
 
   return (
-    <main className="pt-24 pb-20">
+    <main className="pt-20 md:pt-24 pb-16 md:pb-20">
       {/* Header */}
-      <section className="px-6 md:px-12 py-16 md:py-24 relative overflow-hidden">
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[clamp(4rem,20vw,16rem)] uppercase tracking-cinematic text-primary/[0.04] select-none whitespace-nowrap pointer-events-none">
+      <section className="px-5 md:px-12 py-12 md:py-24 relative overflow-hidden">
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[clamp(3rem,18vw,16rem)] uppercase tracking-cinematic text-primary/[0.04] select-none whitespace-nowrap pointer-events-none">
           VIDEOGRAPHY
         </span>
         <div className="relative z-10 max-w-7xl mx-auto">
           <ScrollReveal>
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-4">SHOWCASE</p>
-            <h1 className="font-display text-5xl md:text-8xl uppercase tracking-cinematic text-foreground">
+            <p className="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-3">SHOWCASE</p>
+            <h1 className="font-display text-4xl md:text-8xl uppercase tracking-cinematic text-foreground">
               VIDEO<span className="text-primary">GRAPHY</span>
             </h1>
           </ScrollReveal>
@@ -60,7 +57,7 @@ const Videos = () => {
       <div ref={sectionRef} className="hidden md:block horizontal-scroll-section relative">
         <div className="horizontal-scroll-inner flex items-center px-12">
           <div ref={scrollRef} className="flex gap-8 will-change-transform">
-            {videoProjects.map((project, i) => (
+            {videoProjects.map((project) => (
               <div
                 key={project.title}
                 className="flex-shrink-0 w-[500px] group cursor-pointer"
@@ -73,13 +70,11 @@ const Videos = () => {
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-background/40 group-hover:bg-background/10 transition-all duration-500" />
-                  {/* Play Icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="w-16 h-16 border-2 border-primary flex items-center justify-center rec-pulse">
-                      <div className="w-0 h-0 border-t-6 border-t-transparent border-l-10 border-l-primary border-b-6 border-b-transparent ml-1" />
+                      <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-primary border-b-[6px] border-b-transparent ml-1" />
                     </div>
                   </div>
-                  {/* Duration OSD */}
                   <span className="absolute bottom-3 right-3 font-mono text-[10px] text-foreground bg-background/60 px-2 py-1 tracking-wider">
                     {project.duration}
                   </span>
@@ -92,7 +87,7 @@ const Videos = () => {
                     </h3>
                     <p className="font-mono text-[10px] text-muted-foreground tracking-widest mt-1">{project.type}</p>
                   </div>
-                  <span className="font-mono text-[10px] text-muted-foreground">{project.year}</span>
+                  <span className="font-mono text-[10px] text-muted-foreground/60">{project.year}</span>
                 </div>
               </div>
             ))}
@@ -101,11 +96,11 @@ const Videos = () => {
       </div>
 
       {/* Mobile: Embla Carousel */}
-      <section className="md:hidden px-6 py-8">
+      <section className="md:hidden px-5 py-6">
         <Carousel opts={{ align: "start", loop: false }} className="w-full">
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-3">
             {videoProjects.map((project) => (
-              <CarouselItem key={project.title} className="pl-4 basis-[85%]">
+              <CarouselItem key={project.title} className="pl-3 basis-[88%]">
                 <div
                   className="group cursor-pointer"
                   onClick={() => setLightbox({ open: true, title: project.title })}
@@ -117,7 +112,13 @@ const Videos = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-background/30" />
-                    <span className="absolute bottom-3 right-3 font-mono text-[10px] text-foreground bg-background/60 px-2 py-1 tracking-wider">
+                    {/* Play icon */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-12 h-12 border border-primary/60 flex items-center justify-center bg-background/30">
+                        <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-primary border-b-[5px] border-b-transparent ml-0.5" />
+                      </div>
+                    </div>
+                    <span className="absolute bottom-2 right-2 font-mono text-[9px] text-foreground bg-background/60 px-2 py-0.5 tracking-wider">
                       {project.duration}
                     </span>
                   </div>
@@ -125,7 +126,7 @@ const Videos = () => {
                     <h3 className="font-display text-lg uppercase tracking-cinematic text-foreground">
                       {project.title}
                     </h3>
-                    <p className="font-mono text-[10px] text-muted-foreground tracking-widest mt-1">
+                    <p className="font-mono text-[9px] text-muted-foreground tracking-widest mt-1">
                       {project.type} · {project.year}
                     </p>
                   </div>
