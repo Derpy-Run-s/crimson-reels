@@ -8,7 +8,7 @@ const films = [
     type: "SHORT FILM",
     duration: "12:34",
     year: "2026",
-    image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/10.jpg",
     description: "A haunting short film exploring the boundaries between memory and reality, shot across remote desert landscapes.",
   },
   {
@@ -16,7 +16,7 @@ const films = [
     type: "DOCUMENTARY",
     duration: "45:00",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/11.jpg",
     description: "Feature documentary following artisan craftsmen preserving traditional methods in a rapidly modernizing world.",
   },
   {
@@ -24,7 +24,7 @@ const films = [
     type: "SHORT FILM",
     duration: "08:15",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/12.jpg",
     description: "Award-winning short exploring fractured identity through non-linear storytelling and bold cinematography.",
   },
   {
@@ -32,7 +32,7 @@ const films = [
     type: "MUSIC VIDEO",
     duration: "04:22",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1514306191717-452ec28c7814?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/13.jpg",
     description: "Neon-drenched music video blending choreography with experimental visual effects and one-take sequences.",
   },
 ];

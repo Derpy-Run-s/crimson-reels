@@ -6,37 +6,37 @@ const projects = [
   {
     title: "Bengaluru Torpedoes",
     category: "ADVERTISEMENTS / FILMS",
-    image: "https://images.unsplash.com/photo-1461896836934-bd45ba8c028d?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/1.jpg",
     description: "Dynamic promotional campaign featuring match footage, player spotlights, and energetic content.",
   },
   {
     title: "Portfolio Shoots",
     category: "PHOTOGRAPHY",
-    image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/2.jpg",
     description: "Vibrant photoshoot capturing the energy and atmosphere of live performances with dramatic lighting.",
   },
   {
     title: "Celebrity Photoshoots",
     category: "PHOTOGRAPHY",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/3.jpg",
     description: "Professional portrait and promotional photoshoot with elegant styling and cinematic compositions.",
   },
   {
     title: "Corporate Campaign",
     category: "ADVERTISEMENT DESIGN",
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/4.jpg",
     description: "Strategic corporate advertising campaigns that communicate brand vision with precision.",
   },
   {
     title: "Luxury Vehicle Showcase",
     category: "AUTOMOTIVE PHOTOGRAPHY",
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/5.jpg",
     description: "Premium automotive photography showcasing luxury vehicles with cinematic depth and detail.",
   },
   {
     title: "Brand Identity Package",
     category: "BRAND IDENTITY",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/6.jpg",
     description: "Comprehensive brand identity solutions establishing a strong, memorable market presence.",
   },
 ];
