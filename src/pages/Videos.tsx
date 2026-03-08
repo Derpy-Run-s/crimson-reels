@@ -43,7 +43,7 @@ const reels = [
     type: "AUTOMOTIVE",
     duration: "00:30",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/14.jpg",
     description: "High-octane automotive reel showcasing luxury vehicles in motion.",
   },
   {
@@ -51,7 +51,7 @@ const reels = [
     type: "BRAND SPOT",
     duration: "00:45",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/15.jpg",
     description: "Rapid-cut brand commercial for a premium lifestyle label.",
   },
   {
@@ -59,7 +59,7 @@ const reels = [
     type: "SPORTS",
     duration: "00:60",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1461896836934-bd45ba8c028d?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/16.jpg",
     description: "Explosive sports highlight reel for Bengaluru Torpedoes season campaign.",
   },
   {
@@ -67,7 +67,7 @@ const reels = [
     type: "FASHION",
     duration: "00:30",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/17.jpg",
     description: "Sleek fashion reel with moody tones and editorial framing.",
   },
   {
@@ -75,7 +75,7 @@ const reels = [
     type: "TRAVEL",
     duration: "00:45",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/18.jpg",
     description: "Cinematic travel reel across Dubai, Muscat, and the Arabian desert.",
   },
   {
@@ -83,7 +83,7 @@ const reels = [
     type: "PRODUCT",
     duration: "00:20",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/works/0.jpg",
     description: "Sleek product reveal reel with dramatic lighting and macro details.",
   },
 ];
