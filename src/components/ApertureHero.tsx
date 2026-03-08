@@ -9,11 +9,8 @@ const ApertureHero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const scrollDown = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-  };
 
-  return (
+
     <section className="relative h-screen w-full overflow-hidden bg-background spotlight">
       {/* Aperture Panels */}
       <div
