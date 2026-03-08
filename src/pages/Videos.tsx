@@ -8,7 +8,7 @@ const films = [
     type: "SHORT FILM",
     duration: "12:34",
     year: "2026",
-    image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/10.jpg",
     description: "A haunting short film exploring the boundaries between memory and reality, shot across remote desert landscapes.",
   },
   {
@@ -16,7 +16,7 @@ const films = [
     type: "DOCUMENTARY",
     duration: "45:00",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/11.jpg",
     description: "Feature documentary following artisan craftsmen preserving traditional methods in a rapidly modernizing world.",
   },
   {
@@ -24,7 +24,7 @@ const films = [
     type: "SHORT FILM",
     duration: "08:15",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/12.jpg",
     description: "Award-winning short exploring fractured identity through non-linear storytelling and bold cinematography.",
   },
   {
@@ -32,7 +32,7 @@ const films = [
     type: "MUSIC VIDEO",
     duration: "04:22",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1514306191717-452ec28c7814?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/13.jpg",
     description: "Neon-drenched music video blending choreography with experimental visual effects and one-take sequences.",
   },
 ];
@@ -43,7 +43,7 @@ const reels = [
     type: "AUTOMOTIVE",
     duration: "00:30",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/14.jpg",
     description: "High-octane automotive reel showcasing luxury vehicles in motion.",
   },
   {
@@ -51,7 +51,7 @@ const reels = [
     type: "BRAND SPOT",
     duration: "00:45",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/15.jpg",
     description: "Rapid-cut brand commercial for a premium lifestyle label.",
   },
   {
@@ -59,7 +59,7 @@ const reels = [
     type: "SPORTS",
     duration: "00:60",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1461896836934-bd45ba8c028d?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/16.jpg",
     description: "Explosive sports highlight reel for Bengaluru Torpedoes season campaign.",
   },
   {
@@ -67,7 +67,7 @@ const reels = [
     type: "FASHION",
     duration: "00:30",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/17.jpg",
     description: "Sleek fashion reel with moody tones and editorial framing.",
   },
   {
@@ -75,7 +75,7 @@ const reels = [
     type: "TRAVEL",
     duration: "00:45",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/worksnew/18.jpg",
     description: "Cinematic travel reel across Dubai, Muscat, and the Arabian desert.",
   },
   {
@@ -83,7 +83,7 @@ const reels = [
     type: "PRODUCT",
     duration: "00:20",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=900&q=80",
+    image: "https://thersproductions.com/assets/rs-assets/works/0.jpg",
     description: "Sleek product reveal reel with dramatic lighting and macro details.",
   },
 ];
@@ -144,7 +144,7 @@ const Videos = () => {
       <section className="relative overflow-hidden">
         <div className="relative h-[50vh] md:h-[70vh]">
           <img
-            src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1600&q=80"
+            src="https://thersproductions.com/assets/rs-assets/worksnew/10.jpg"
             alt="Red Sea Productions Films"
             className="w-full h-full object-cover"
           />
