@@ -14,61 +14,64 @@ const videoProjects = [
   { title: "After Dark", category: "Music Video", year: "2025", image: "https://images.unsplash.com/photo-1514306191717-452ec28c7814?w=800&q=80" },
 ];
 
+const SectionHeader = ({ label, title, linkTo }: { label: string; title: string; linkTo: string }) => (
+  <ScrollReveal>
+    <div className="flex items-end justify-between mb-8 md:mb-14">
+      <div>
+        <p className="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-2">
+          {label}
+        </p>
+        <h2 className="font-display text-3xl md:text-6xl uppercase tracking-cinematic text-foreground">
+          {title}
+        </h2>
+      </div>
+      <Link
+        to={linkTo}
+        className="font-mono text-[9px] md:text-[10px] tracking-widest text-muted-foreground hover:text-primary transition-colors uppercase hidden md:block pb-1"
+      >
+        VIEW ALL →
+      </Link>
+    </div>
+  </ScrollReveal>
+);
+
 const FeaturedWork = () => (
-  <section className="py-24 md:py-40 px-6 md:px-12 bg-background">
+  <section className="py-20 md:py-40 px-5 md:px-12 bg-background">
     <div className="max-w-7xl mx-auto">
       {/* Photography */}
-      <ScrollReveal>
-        <div className="flex items-baseline justify-between mb-10 md:mb-16">
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-2">SELECTED</p>
-            <h2 className="font-display text-4xl md:text-6xl uppercase tracking-cinematic text-foreground">
-              PHOTOGRAPHY
-            </h2>
-          </div>
-          <Link to="/photography" className="font-mono text-[10px] tracking-widest text-muted-foreground hover:text-primary transition-colors uppercase hidden md:block">
-            VIEW ALL →
-          </Link>
-        </div>
-      </ScrollReveal>
+      <SectionHeader label="SELECTED" title="PHOTOGRAPHY" linkTo="/photography" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 mb-6">
         {photoProjects.map((project, i) => (
           <ScrollReveal key={project.title} delay={i * 100}>
             <ProjectCard {...project} link="/photography" aspectTall={i === 1} />
           </ScrollReveal>
         ))}
       </div>
-      <Link to="/photography" className="font-mono text-[10px] tracking-widest text-muted-foreground hover:text-primary transition-colors uppercase md:hidden block text-center mt-4">
+      <Link
+        to="/photography"
+        className="font-mono text-[9px] tracking-widest text-muted-foreground hover:text-primary transition-colors uppercase md:hidden block text-center mt-2 py-3"
+      >
         VIEW ALL →
       </Link>
 
       {/* Divider */}
-      <div className="h-px bg-border my-16 md:my-24" />
+      <div className="h-px bg-border/30 my-14 md:my-24" />
 
       {/* Videos */}
-      <ScrollReveal>
-        <div className="flex items-baseline justify-between mb-10 md:mb-16">
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-2">SELECTED</p>
-            <h2 className="font-display text-4xl md:text-6xl uppercase tracking-cinematic text-foreground">
-              FILMS
-            </h2>
-          </div>
-          <Link to="/videos" className="font-mono text-[10px] tracking-widest text-muted-foreground hover:text-primary transition-colors uppercase hidden md:block">
-            VIEW ALL →
-          </Link>
-        </div>
-      </ScrollReveal>
+      <SectionHeader label="SELECTED" title="FILMS" linkTo="/videos" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 mb-6">
         {videoProjects.map((project, i) => (
           <ScrollReveal key={project.title} delay={i * 100}>
             <ProjectCard {...project} link="/videos" />
           </ScrollReveal>
         ))}
       </div>
-      <Link to="/videos" className="font-mono text-[10px] tracking-widest text-muted-foreground hover:text-primary transition-colors uppercase md:hidden block text-center mt-4">
+      <Link
+        to="/videos"
+        className="font-mono text-[9px] tracking-widest text-muted-foreground hover:text-primary transition-colors uppercase md:hidden block text-center mt-2 py-3"
+      >
         VIEW ALL →
       </Link>
     </div>
