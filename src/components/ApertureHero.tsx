@@ -8,9 +8,7 @@ const ApertureHero = () => {
     const timer = setTimeout(() => setOpened(true), 300);
     return () => clearTimeout(timer);
   }, []);
-
-
-
+  return (
     <section className="relative h-screen w-full overflow-hidden bg-background spotlight">
       {/* Aperture Panels */}
       <div
