@@ -1,14 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import ApertureHero from "@/components/ApertureHero";
+import FeaturedWork from "@/components/FeaturedWork";
+import ServicesTeaser from "@/components/ServicesTeaser";
+import ScrollReveal from "@/components/ScrollReveal";
+import MagneticButton from "@/components/MagneticButton";
+import { Link } from "react-router-dom";
 
-const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+const Index = () => (
+  <main>
+    <ApertureHero />
+    <FeaturedWork />
+    <ServicesTeaser />
+
+    {/* CTA Strip */}
+    <section className="py-32 md:py-48 px-6 bg-background spotlight-center">
+      <ScrollReveal>
+        <div className="text-center">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-6">
+            READY TO CREATE?
+          </p>
+          <h2 className="font-display text-4xl md:text-7xl uppercase tracking-cinematic text-foreground mb-10">
+            ENTER THE <span className="text-primary">DARKROOM</span>
+          </h2>
+          <Link to="/contact">
+            <MagneticButton className="inline-flex items-center gap-3 border border-primary px-10 py-4 font-mono text-xs tracking-widest text-primary uppercase hover:bg-primary hover:text-primary-foreground transition-all duration-500">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              START A PROJECT
+            </MagneticButton>
+          </Link>
+        </div>
+      </ScrollReveal>
+    </section>
+  </main>
+);
 
 export default Index;
