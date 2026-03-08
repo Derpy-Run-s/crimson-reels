@@ -170,7 +170,7 @@ const FeaturedWork = () => {
       {/* Desktop: Horizontal Scroll Reel */}
       <div ref={containerRef} className="hidden md:block" style={{ height: `${projects.length * 80}vh` }}>
         <div className="sticky top-0 h-screen overflow-hidden flex items-center">
-          <div ref={scrollRef} className="flex gap-6 pl-12 will-change-transform">
+          <div ref={scrollRef} className={`flex gap-6 pl-12 will-change-transform select-none ${dragging ? '[&_a]:pointer-events-none' : ''}`}>
             {projects.map((project, i) => (
               <Link
                 to="/photography"
