@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 
@@ -45,6 +45,28 @@ const FeaturedWork = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const dragOffset = useRef(0);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartOffset = useRef(0);
+  const scrollTranslate = useRef(0);
+  const [dragging, setDragging] = useState(false);
+
+  // Compute max scroll
+  const getMaxScroll = useCallback(() => {
+    if (!scrollRef.current) return 0;
+    return scrollRef.current.scrollWidth - window.innerWidth + 100;
+  }, []);
+
+  // Apply transform combining scroll-driven + drag offset
+  const applyTransform = useCallback(() => {
+    if (!scrollRef.current) return;
+    const maxScroll = getMaxScroll();
+    const total = Math.max(0, Math.min(maxScroll, scrollTranslate.current + dragOffset.current));
+    scrollRef.current.style.transform = `translateX(-${total}px)`;
+    // Update progress
+    if (maxScroll > 0) setScrollProgress(total / maxScroll);
+  }, [getMaxScroll]);
 
   // Desktop: horizontal scroll driven by vertical scroll
   useEffect(() => {
@@ -56,16 +78,55 @@ const FeaturedWork = () => {
       const containerHeight = containerRef.current.offsetHeight;
       const viewportHeight = window.innerHeight;
       const progress = Math.max(0, Math.min(1, -rect.top / (containerHeight - viewportHeight)));
-      setScrollProgress(progress);
 
-      const maxScroll = scrollRef.current.scrollWidth - window.innerWidth + 100;
-      scrollRef.current.style.transform = `translateX(-${progress * maxScroll}px)`;
+      const maxScroll = getMaxScroll();
+      scrollTranslate.current = progress * maxScroll;
+      applyTransform();
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [getMaxScroll, applyTransform]);
 
+  // Click & drag support
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDragging.current = true;
+      setDragging(true);
+      dragStartX.current = e.clientX;
+      dragStartOffset.current = dragOffset.current;
+      el.style.cursor = "grabbing";
+      e.preventDefault();
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging.current) return;
+      const delta = dragStartX.current - e.clientX;
+      dragOffset.current = dragStartOffset.current + delta;
+      applyTransform();
+    };
+
+    const onMouseUp = () => {
+      if (!isDragging.current) return;
+      isDragging.current = false;
+      setDragging(false);
+      el.style.cursor = "grab";
+    };
+
+    el.style.cursor = "grab";
+    el.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+
+    return () => {
+      el.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, [applyTransform]);
   return (
     <section className="bg-background relative">
       {/* Section Header */}
@@ -109,7 +170,7 @@ const FeaturedWork = () => {
       {/* Desktop: Horizontal Scroll Reel */}
       <div ref={containerRef} className="hidden md:block" style={{ height: `${projects.length * 80}vh` }}>
         <div className="sticky top-0 h-screen overflow-hidden flex items-center">
-          <div ref={scrollRef} className="flex gap-6 pl-12 will-change-transform">
+          <div ref={scrollRef} className={`flex gap-6 pl-12 will-change-transform select-none ${dragging ? '[&_a]:pointer-events-none' : ''}`}>
             {projects.map((project, i) => (
               <Link
                 to="/photography"
