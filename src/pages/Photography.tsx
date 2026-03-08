@@ -146,7 +146,7 @@ const Photography = () => {
       </section>
 
       {/* ── Filter Bar ── */}
-      <section className="px-5 md:px-12 py-6 md:py-8 sticky top-16 md:top-20 z-30 bg-background/90 backdrop-blur-xl border-b border-border/10">
+      <section className="px-5 md:px-12 py-6 md:py-8 border-b border-border/10">
         <div className="max-w-7xl mx-auto flex items-center gap-4">
           <span className="font-mono text-[8px] tracking-[0.3em] text-muted-foreground/30 uppercase hidden md:block shrink-0">
             FILTER
