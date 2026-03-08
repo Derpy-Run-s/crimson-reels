@@ -60,18 +60,6 @@ const ApertureHero = () => {
           </p>
         </ScrollReveal>
 
-        {/* Scroll Indicator */}
-        <ScrollReveal delay={2800}>
-          <button
-            onClick={scrollDown}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group"
-          >
-            <span className="font-mono text-[8px] tracking-[0.4em] text-muted-foreground uppercase group-hover:text-primary transition-colors duration-300">SCROLL</span>
-            <div className="w-px h-10 bg-primary/30 relative overflow-hidden">
-              <div className="w-full h-4 bg-primary absolute animate-bounce" />
-            </div>
-          </button>
-        </ScrollReveal>
       </div>
     </section>
   );
