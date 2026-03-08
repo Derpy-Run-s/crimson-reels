@@ -211,101 +211,73 @@ const Videos = () => {
             </div>
           </ScrollReveal>
 
-          {/* Featured film — large */}
-          {films.length > 0 && (
-            <ScrollReveal>
-              <button
-                onClick={() => openVideo(films[0])}
-                className="w-full group cursor-pointer text-left mb-4 md:mb-6"
-              >
-                <div className="relative overflow-hidden aspect-[16/7] md:aspect-[21/9]">
-                  <img
-                    src={films[0].image}
-                    alt={films[0].title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-[1.01] group-hover:scale-105 transition-all duration-[1.4s] ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent opacity-70 group-hover:opacity-30 transition-opacity duration-700" />
+          {/* Magazine editorial grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4">
+            {films.map((film, i) => {
+              // Layout pattern: 0 = span-8, 1 = span-4 tall, 2 = span-4, 3 = span-8
+              const spanMap = [
+                "md:col-span-8 aspect-[16/9]",
+                "md:col-span-4 md:row-span-2 aspect-[3/4] md:aspect-auto md:h-full",
+                "md:col-span-4 aspect-[4/3]",
+                "md:col-span-8 aspect-[21/9]",
+              ];
+              const span = spanMap[i % 4];
+              const isLarge = i === 0 || i === 3;
 
-                  {/* Play button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-primary/40 group-hover:border-primary flex items-center justify-center transition-all duration-500 group-hover:scale-110 bg-background/10 backdrop-blur-sm">
-                      <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[14px] border-l-primary border-b-[8px] border-b-transparent ml-1" />
-                    </div>
-                  </div>
+              return (
+                <ScrollReveal key={film.title} delay={i * 80} className={span.split(" ").filter(c => c.startsWith("md:col") || c.startsWith("md:row")).join(" ")}>
+                  <button
+                    onClick={() => openVideo(film)}
+                    className="w-full h-full group cursor-pointer text-left"
+                  >
+                    <div className={`relative overflow-hidden h-full ${span.split(" ").filter(c => c.startsWith("aspect") || (!c.startsWith("md:col") && !c.startsWith("md:row"))).join(" ")}`}>
+                      <img
+                        src={film.image}
+                        alt={film.title}
+                        loading={i === 0 ? "eager" : "lazy"}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-[1.01] group-hover:scale-105 transition-all duration-[1.4s] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
 
-                  {/* Info overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="font-mono text-[7px] md:text-[8px] tracking-[0.3em] text-primary/60 uppercase">{films[0].type}</span>
-                      <div className="w-1 h-1 bg-primary/30" />
-                      <span className="font-mono text-[7px] md:text-[8px] tracking-[0.2em] text-muted-foreground/40">{films[0].duration}</span>
-                    </div>
-                    <h3 className="font-display text-2xl md:text-5xl uppercase tracking-cinematic text-foreground group-hover:text-primary transition-colors duration-500">
-                      {films[0].title}
-                    </h3>
-                    <p className="font-mono text-[9px] md:text-[11px] text-muted-foreground/30 mt-2 max-w-lg leading-relaxed hidden md:block group-hover:text-muted-foreground/60 transition-colors duration-500">
-                      {films[0].description}
-                    </p>
-                  </div>
-
-                  {/* Accent line */}
-                  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
-
-                  {/* Year badge */}
-                  <span className="absolute top-4 right-5 font-mono text-[9px] text-muted-foreground/20 tracking-[0.2em]">{films[0].year}</span>
-                </div>
-              </button>
-            </ScrollReveal>
-          )}
-
-          {/* Remaining films — 2 or 3 column grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-            {films.slice(1).map((film, i) => (
-              <ScrollReveal key={film.title} delay={i * 60}>
-                <button
-                  onClick={() => openVideo(film)}
-                  className="w-full group cursor-pointer text-left"
-                >
-                  <div className="relative overflow-hidden aspect-video">
-                    <img
-                      src={film.image}
-                      alt={film.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-[1.01] group-hover:scale-105 transition-all duration-[1s] ease-[cubic-bezier(0.16,1,0.3,1)]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent group-hover:opacity-50 transition-opacity duration-500" />
-
-                    {/* Play */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                      <div className="w-12 h-12 border border-primary/50 flex items-center justify-center bg-background/20 backdrop-blur-sm">
-                        <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[9px] border-l-primary border-b-[5px] border-b-transparent ml-0.5" />
+                      {/* Play */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className={`${isLarge ? "w-16 h-16 md:w-20 md:h-20" : "w-12 h-12"} border border-primary/40 group-hover:border-primary flex items-center justify-center bg-background/10 backdrop-blur-sm transition-all duration-500 group-hover:scale-110`}>
+                          <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-primary border-b-[6px] border-b-transparent ml-0.5" />
+                        </div>
                       </div>
+
+                      {/* Type + Duration badge */}
+                      <div className="absolute top-3 left-3 flex items-center gap-2">
+                        <span className="font-mono text-[7px] md:text-[8px] tracking-[0.3em] text-foreground/60 bg-background/50 backdrop-blur-sm px-2 py-0.5 uppercase">
+                          {film.type}
+                        </span>
+                      </div>
+                      <span className="absolute top-3 right-3 font-mono text-[7px] md:text-[8px] text-foreground/60 bg-background/50 backdrop-blur-sm px-2 py-0.5 tracking-wider">
+                        {film.duration}
+                      </span>
+
+                      {/* Bottom info */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                        <h3 className={`font-display uppercase tracking-cinematic text-foreground group-hover:text-primary transition-colors duration-500 ${isLarge ? "text-2xl md:text-4xl" : "text-lg md:text-xl"}`}>
+                          {film.title}
+                        </h3>
+                        {isLarge && (
+                          <p className="font-mono text-[9px] md:text-[11px] text-muted-foreground/30 mt-2 max-w-lg leading-relaxed hidden md:block group-hover:text-muted-foreground/60 transition-colors duration-500">
+                            {film.description}
+                          </p>
+                        )}
+                        <div className="flex items-center gap-3 mt-1.5">
+                          <span className="font-mono text-[7px] md:text-[8px] text-muted-foreground/30 tracking-[0.2em]">{film.year}</span>
+                        </div>
+                      </div>
+
+                      {/* Accent line */}
+                      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
                     </div>
-
-                    {/* Duration */}
-                    <span className="absolute bottom-3 right-3 font-mono text-[8px] text-foreground/70 bg-background/60 backdrop-blur-sm px-2 py-1 tracking-wider">
-                      {film.duration}
-                    </span>
-
-                    {/* Bottom info */}
-                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
-                      <p className="font-mono text-[6px] md:text-[7px] tracking-[0.25em] text-primary/50 uppercase mb-0.5">{film.type}</p>
-                      <h3 className="font-display text-base md:text-lg uppercase tracking-cinematic text-foreground group-hover:text-primary transition-colors duration-400">
-                        {film.title}
-                      </h3>
-                    </div>
-
-                    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-600 origin-left" />
-                  </div>
-
-                  <div className="flex items-center justify-between mt-2 md:mt-3">
-                    <p className="font-mono text-[8px] text-muted-foreground/30 tracking-[0.15em]">{film.year}</p>
-                    <p className="font-mono text-[7px] text-muted-foreground/20 tracking-[0.1em] line-clamp-1 max-w-[60%] text-right">{film.description}</p>
-                  </div>
-                </button>
-              </ScrollReveal>
-            ))}
+                  </button>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </div>
       </section>
